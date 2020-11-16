@@ -1,10 +1,11 @@
 import './App.css';
-
-
-
-
+import axios from 'axios'
+import { useEffect } from 'react'
+const URL = 'https://api.spotify.com/v1/artists/1U0sIzpRtDkvu1hXXzxh60/related-artists'
+const token = 'Bearer BQBH_WTNAPCmKkIRLBONW7bqwdmIHzQjTlvJgfF650xKEnpbC3vvr-GZ1JyzbBMgUgg9Dkhd2Pd-DfakfHEsYf6TzMt9-QtlgwCrv6hvfEMDVeRPWENQpXR53ymtqlwdxP8FZMRoVJI'
 
 function App() {
+  const data = Spodifyfunction()
   return (
     <div className="App">
       
@@ -13,11 +14,9 @@ function App() {
 }
 
 
-axios = require('axios')
-let data 
-const URL = 'https://api.spotify.com/v1/artists/1U0sIzpRtDkvu1hXXzxh60/related-artists'
 
-const token = 'Bearer BQCOF0AbdE9PQJnW03nCSRlf29CVgAhcANlghb8i9177x2Znitd__EJGI_usrVz_YHzMZNCd3mEMF0KT6pKRdLpILwwiB34kklgpQ6peTa5DKnntuyP5prh0y1w9iiPYyXZMhueIwYg'
+
+
 
 const Spodifyfunction = async function(URL){
 	const response = await axios(
@@ -31,10 +30,11 @@ const Spodifyfunction = async function(URL){
 		}
 	}
 )
-	console.log(response)
+const {data:{artists}}=response
+return artists
 }
 
 
-Spodifyfunction()
+
 
 export default App;
