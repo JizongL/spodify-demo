@@ -1,25 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
+
+
+axios = require('axios')
+let data 
+const URL = 'https://api.spotify.com/v1/artists/1U0sIzpRtDkvu1hXXzxh60/related-artists'
+
+const token = 'Bearer BQCOF0AbdE9PQJnW03nCSRlf29CVgAhcANlghb8i9177x2Znitd__EJGI_usrVz_YHzMZNCd3mEMF0KT6pKRdLpILwwiB34kklgpQ6peTa5DKnntuyP5prh0y1w9iiPYyXZMhueIwYg'
+
+const Spodifyfunction = async function(URL){
+	const response = await axios(
+	{
+		method:'get',
+		url: URL,		
+		dataType: 'json',
+		headers:{
+			'Authorization':token,
+			'Content-Type':'json'			
+		}
+	}
+)
+	console.log(response)
+}
+
+
+Spodifyfunction()
 
 export default App;
