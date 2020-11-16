@@ -21,7 +21,7 @@ function App() {
 			setData(response.data.artists)
 	  },[]);
 	  console.log(data,'test data')
-	  const finalData = data.reduce((accum,{name,genres,external_urls,followers,popularity,images})=> {
+	  const finalData = datas.reduce((accum,{name,genres,external_urls,followers,popularity,images})=> {
 	
 		if(!accum[name]){
 			accum[name]={genres,external_urls,followers,popularity,images}
