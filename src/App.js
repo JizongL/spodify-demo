@@ -2,7 +2,7 @@ import './App.css';
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 const URL = 'https://api.spotify.com/v1/artists/1U0sIzpRtDkvu1hXXzxh60/related-artists'
-const token = 'Bearer BQDu3aAptmW9NbZucxQ9ghYuqm3-rCl_LFZRLUFhbwP5sWGJKOHStUQ1yhxC75kBTSmIS-VOtdGxNBEXRSYhcGXByJef2bpYZSe-egEgdw83q23uFhJPoxQEN9wyWJ3O-iegTSYa0ayjqkd6H7SIBhMf'
+const token = 'Bearer BQC3bsJjkOYO1VbKgMsjWuIgi9hEj4VjyujNBAvrC59g3IbQ_KyouKCVOYOQIDtl8zz5ufjIJrJKtNvLxOdu6-FEZlYfBNoKols7c1Y9Tacjc1MjGSbYk1fabL682rdVJlQydR9IvqHSqHIyZd5dylEH'
 
 function App() {
 	const [data,setData]= useState([])
@@ -36,21 +36,25 @@ const finalList = Object.keys(finalData).map((name,index)=>{
 	let {images}=finalData[name]
 	let {external_urls:{spotify}}=finalData[name]
 	return <li className="artist-list-item" key={index}>
-		<div className="artist-name"><a className="external-link" href={spotify}>{name}</a></div>
+		<div className="artist-name">
+			<a className="external-link" href={spotify}>{name}</a>
+		</div>
 		<div className="artist-portrait-container">
-		<img className="artist-portrait" src={images[2]['url']}/>
+			<img className="artist-portrait" src={images[2]['url']}/>
 		</div>
 	</li>
 })
 
 return (
 	<div className="App">
+		<div className="image-container"></div>
 		<ul className="artist-list">
+			<li><h1>Kelela – Related Artists</h1></li>
 			{finalList}
 		</ul>
+		<p>Image credit: Renell Medrano</p>
 	</div>
 );
 }
-
 
 export default App;
